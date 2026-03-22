@@ -1,6 +1,23 @@
 ### 피어리뷰 (Spring A팀 미키)
 
+![image1](image1.png)
+
 **리뷰 내용**
+
+1번 쿼리
+- ERD 테이블 이름과 동일하게 REVEIW -> review로 변경하면 좋을 것 같아요!
+- 위와 동일하게 모두 소문자로 변경하면 좋을 것 같아요!
+
+2번 쿼리
+- SQL문에서는 '로만 적는걸로 알고있는데 한 번 확인해주세요!!
+
+3번 쿼리
+- 저는 AS가 테이블 이름을 짧게 줄이는 기능만 있는줄 알았는데 별칭 기능도 있었군요!
+- 제가 알기로는 SELECT, FROM, JOIN 모든 곳에서 AS 사용해도 되는 것으로 알고 있어서 mission AS m이 맞을 것 같아요!
+- cursor paging 방법까지 쓰신게 인상깊어요!
+
+4번 쿼리
+- created_at()을 front에 넘기는게 아니라 직접 시간 넘겨주는게 멋있어요!
 
 <hr>
 
@@ -59,7 +76,8 @@ SELECT s.name, s.category_id, m.deadline, m.condition, m.success_point
 FROM missions AS m
 JOIN stores AS s ON s.id = m.store_id
 JOIN regions AS r ON r.id = s.region_id
-WHERE r.name = '안암동'
-ORDER BY m.deadline ASC
+LEFT JOIN user_missions AS um ON um.mission_id = m.id AND um.user_id = 1
+WHERE r.name = '안암동' AND (um.status IS NULL OR um.status != 'SUCCESS')
+ORDER BY m.deadline ASC;
 LIMIT 10 OFFSET 0;
 ```
