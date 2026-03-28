@@ -1,8 +1,17 @@
+### 피어리뷰 (Spring A팀 미키)
+
+![image1](image1.png)
+
+**리뷰 내용**
+
+Http Method에 대해 자세하면서 핵심만 정확하게 조사하게 좋은 것 같아요! 특히 Hard, Soft Delete까지 구분해서 설명해주신 점이 인상깊어요!
+
+<hr>
+
 ### 1. 홈화면
 - #### API Endpoint : GET /api/home
 - #### Request Body : X
 - #### Request Header :
-    - Content-Type : application/json
     - Authorization: Bearer <token>
 - #### Query Parameter
 
@@ -18,21 +27,21 @@
     ```json
     {
         "isSuccess": true,
-        "code": "COMMON200",
+        "code": "COMMON201",
         "message": "성공입니다.",
         "result": {
               "userPoint" : 999999,
               "missionCount" : 7,
               "missions" : [
                   {
-                      "missionId" : "1",
+                      "missionId" : 1,
                       "storeName" : "학생마라탕",
                       "missionContent" : "12000이상 식사",
                       "missionPoint" : 500,
                       "missionDeadline" : 7
                   },
                   {
-                      "missionId" : "2",
+                      "missionId" : 2,
                       "storeName" : "학생짜장면",
                       "missionContent" : "14000이상 식사",
                       "missionPoint" : 600,
@@ -56,7 +65,7 @@
     ```json
     {
         "reviewContent" : "좋은데요?",
-        "star" : "5",
+        "star" : 5,
         "photoUrl" : "~~~"
     }
     ```
@@ -69,7 +78,7 @@
 
     ```json
     {
-        "storeId" : "1" 
+        "storeId" : 1
     }
     ```
 
@@ -78,10 +87,10 @@
     ```json
     {
         "isSuccess": true,
-        "code": "COMMON200",
+        "code": "COMMON201",
         "message": "성공입니다.",
         "result": {
-                "reviewId" : "1"
+                "reviewId" : 1
         },
         "timestamp": "2026-03-22T18:45:08"
     }
@@ -93,7 +102,6 @@
 - #### API Endpoint : GET /api/mypages/missions
 - #### Request Body : X
 - #### Request Header :
-    - Content-Type : application/json
     - Authorization: Bearer <token>
 - #### Query Parameter
 
@@ -117,7 +125,7 @@
               "missionCount" : 7,
               "missions" : [
                   {
-                      "missionId" : "1",
+                      "missionId" : 1,
                       "storeId" : "1",
                       "storeName" : "학생마라탕",
                       "missionContent" : "12000이상 식사",
@@ -125,7 +133,7 @@
                       "missionDeadline" : 7
                   },
                   {
-                      "missionId" : "2",
+                      "missionId" : 2,
                       "storeId" : "2",
                       "storeName" : "학생짜장면",
                       "missionContent" : "14000이상 식사",
@@ -144,7 +152,7 @@
 <hr>
 
 ### 4. 미션 성공 누르기
-- #### API Endpoint : POST /api/missions/{missionId}/success
+- #### API Endpoint : PATCH /api/missions/{missionId}
 - #### Request Body : X
 - #### Request Header :
     - Content-Type : application/json
@@ -154,7 +162,7 @@
 
     ```json
     {
-        "missionId" : "1"
+        "missionId" : 1
     }
     ```
 
@@ -166,29 +174,28 @@
         "code": "COMMON200",
         "message": "성공입니다.",
         "result": {
-                "missionId" : "1"
+                "missionId" : 1
         },
         "timestamp": "2026-03-22T18:45:08"
     }
     ```
 
 ### 5. 회원 가입하기
-- #### API Endpoint : POST /auth/users/signup
+- #### API Endpoint : POST /auth/signup
 - #### Request Body :
 
     ```json
     {
         "terms" : [
-            {"termId" : "1", "isAgree" : true},
-            {"termId" : "2", "isAgree" : true},
-            {"termId" : "3", "isAgree" : true},
-            {"termId" : "4", "isAgree" : true}
+            {"termId" : 1, "isAgree" : true},
+            {"termId" : 2, "isAgree" : true},
+            {"termId" : 3, "isAgree" : true},
+            {"termId" : 4, "isAgree" : true}
         ],
         "name" : "주니",
         "gender" : "male",
         "birth" : "2003-02-07",
         "address" : "인천 경인남길 30번길",
-        "email" : "junny@naver.com",
         "favoriteFoods" : ["1", "4"]
     }
     ```
