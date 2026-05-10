@@ -5,6 +5,14 @@
 
 <hr>
 
+### 미션기록 추가
+
+![mission1](mission1.png)
+![mission2](mission2.png)
+![mission3](mission3.png)
+![mission4](mission4.png)
+![mission5](mission5.png)
+
 
 ### 간단한 JPA Repository 메서드 실행부분에 디버깅 포인트 찍어보면서 디버깅하기
 
